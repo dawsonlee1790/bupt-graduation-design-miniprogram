@@ -1,0 +1,53 @@
+<!--pages/usecase/makeSopView/makeSopView.wxml-->
+<import src="../../common/head.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: '制定Sop'}}" />
+
+  <view class="page-body">
+    <form catchsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">Sop名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="sopName" placeholder="请输入Sop名称"></input>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">最终数量</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" password name="sopNumber" placeholder="一个Sop过程产生的制品数量"></input>
+          </view>
+        </view>
+      </view>
+      <block wx:for-items="{{sopStepList}}">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cells__title">步骤{{index + 1}}</view>
+            <view class="weui-cell__hd">
+              <view class="weui-label">操作内容</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="sopName" placeholder="请输入操作内容"></input>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">角色</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" password name="sopNumber" placeholder="请输入角色"></input>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="btn-area">
+        <button type="primary" formType="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

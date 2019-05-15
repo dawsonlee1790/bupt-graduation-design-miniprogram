@@ -1,0 +1,15 @@
+<!--pages/usecase/usecase.wxml-->
+<view class='index-bd'>
+  <view class='kind-list'>
+    <block wx:for-items="{{usecases}}" wx:key="{{item.id}}">
+      <view class='kind-list-item'>
+        <navigator url="{{item.url}}" >
+          <view id='{{item.id}}' class="kind-list-item-hd">
+            <view class='kind-list-text'>{{item.name}}</view>
+            <view class="navigator-arrow"></view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+</view>
