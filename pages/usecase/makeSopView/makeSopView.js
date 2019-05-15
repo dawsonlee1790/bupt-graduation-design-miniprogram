@@ -5,72 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sopStepList:[]
+    sopName: '',
+    sopNumber: '',
+    sopStepList: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
+  setSopName(e) {
+    this.data.sopName = e.detail.value
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+  setSopNumber(e) {
+    this.data.sopNumber = e.detail.value
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
+  setOperationContent(e) {
+    var index = e.currentTarget.dataset.index 
+    this.data.sopStepList[index].operationContent = e.detail.value
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
+  setExecutor(e) {
+    var index = e.currentTarget.dataset.index 
+    this.data.sopStepList[index].executor = e.detail.value
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
 
+  createSopStep: function() {
+    var index = this.data.sopStepList.length
+    this.data.sopStepList = this.data.sopStepList.concat([{
+      id: index + 1,
+      operationContent: '',
+      executor: ''
+    }])
+    this.setData({
+      sopStepList: this.data.sopStepList
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
-  formSubmit(e) {
+  makeSopRequest: function() {
     const self = this
     self.setData({
       loading: true
     })
-    var username = e.detail.value.username
-    var passwordToken = e.detail.value.passwordToken
+    var sopName = this.data.sopName
+    var sopNumber = this.data.sopNumber
     wx.request({
       url: `http://user.debugya.cn:30080/UserController/login`,
       method: 'post',
@@ -78,8 +56,8 @@ Page({
         "Content-Type": "application/json"
       },
       data: {
-        "name": username,
-        "passwordToken": passwordToken
+        "name": sopName,
+        "passwordToken": sopNumber
       },
       success(result) {
         if (result.statusCode == 200) {
@@ -87,7 +65,7 @@ Page({
             title: '登陆成功',
             icon: 'success',
             mask: true,
-            duration,
+            duration: 20000,
           })
           self.setData({
             loading: false

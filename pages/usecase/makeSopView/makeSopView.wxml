@@ -5,49 +5,48 @@
   <template is="head" data="{{title: '制定Sop'}}" />
 
   <view class="page-body">
-    <form catchsubmit="formSubmit">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">Sop名称</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">Sop名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="sopName" placeholder="请输入Sop名称" value='{{sopName}}' bindinput='setSopName'></input>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">最终数量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type='number' name="sopNumber" placeholder="一个Sop过程产生的制品数量" value='{{sopNumber}}' bindinput='setSopNumber'></input>
+        </view>
+      </view>
+    </view>
+    <block wx:for-items="{{sopStepList}}" wx:key="{{item.id}}" data-index="{{index}}">
+      <view class="weui-cells__title ">步骤{{item.id}}</view>
+      <view class="weui-cells weui-cells_after-title ">
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd ">
+            <view class="weui-label ">操作内容</view>
           </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" name="sopName" placeholder="请输入Sop名称"></input>
+          <view class="weui-cell__bd ">
+            <input class="weui-input " placeholder="请输入操作内容 " value='{{item.operationContent}}' data-index='{{index}}' bindinput='setOperationContent'></input>
           </view>
         </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">最终数量</view>
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd ">
+            <view class="weui-label ">角色</view>
           </view>
-          <view class="weui-cell__bd">
-            <input class="weui-input" password name="sopNumber" placeholder="一个Sop过程产生的制品数量"></input>
+          <view class="weui-cell__bd ">
+            <input class="weui-input " placeholder="请输入角色 " value='{{item.executor}}' name='{{index}}' data-index='{{index}}' bindinput='setExecutor'></input>
           </view>
         </view>
       </view>
-      <block wx:for-items="{{sopStepList}}">
-        <view class="weui-cells weui-cells_after-title">
-          <view class="weui-cell weui-cell_input">
-            <view class="weui-cells__title">步骤{{index + 1}}</view>
-            <view class="weui-cell__hd">
-              <view class="weui-label">操作内容</view>
-            </view>
-            <view class="weui-cell__bd">
-              <input class="weui-input" name="sopName" placeholder="请输入操作内容"></input>
-            </view>
-          </view>
-          <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__hd">
-              <view class="weui-label">角色</view>
-            </view>
-            <view class="weui-cell__bd">
-              <input class="weui-input" password name="sopNumber" placeholder="请输入角色"></input>
-            </view>
-          </view>
-        </view>
-      </block>
-      <view class="btn-area">
-        <button type="primary" formType="submit">提交</button>
-      </view>
-    </form>
+    </block>
+    <view class="btn-area ">
+      <button bindtap='createSopStep'>新建步骤</button>
+      <button type="primary" bindtap='makeSopRequest'>提交</button>
+    </view>
   </view>
 </view>
