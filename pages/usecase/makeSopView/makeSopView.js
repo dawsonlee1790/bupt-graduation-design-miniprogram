@@ -19,12 +19,12 @@ Page({
   },
 
   setOperationContent(e) {
-    var index = e.currentTarget.dataset.index 
+    var index = e.currentTarget.dataset.index
     this.data.sopStepList[index].operationContent = e.detail.value
   },
 
   setExecutor(e) {
-    var index = e.currentTarget.dataset.index 
+    var index = e.currentTarget.dataset.index
     this.data.sopStepList[index].executor = e.detail.value
   },
 
@@ -47,6 +47,9 @@ Page({
     self.setData({
       loading: true
     })
+    for (var i = 0; i < this.data.sopStepList; i++) {
+      this.data.sopStepList[i].next = this.data.sopStepList[i+1]
+    }
     var sopName = this.data.sopName
     var sopNumber = this.data.sopNumber
     wx.request({
@@ -56,13 +59,14 @@ Page({
         "Content-Type": "application/json"
       },
       data: {
-        "name": sopName,
-        "passwordToken": sopNumber
+        "sopName": sopName,
+        "sopNumber": sopNumber,
+        "startSopStep": this.data.sopStepList[0]
       },
       success(result) {
         if (result.statusCode == 200) {
           wx.showToast({
-            title: '登陆成功',
+            title: '制定成功',
             icon: 'success',
             mask: true,
             duration: 20000,
@@ -73,7 +77,7 @@ Page({
           console.log('request success', result)
         } else {
           wx.showToast({
-            title: '登陆失败'
+            title: '制定失败'
           })
           self.setData({
             loading: false
