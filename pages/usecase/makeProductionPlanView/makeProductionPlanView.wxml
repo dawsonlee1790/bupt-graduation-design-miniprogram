@@ -64,5 +64,4 @@
     </form>
   </view>
 
-  <template is="foot" />
 </view>
