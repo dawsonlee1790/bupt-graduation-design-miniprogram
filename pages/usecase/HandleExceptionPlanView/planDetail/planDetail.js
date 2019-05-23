@@ -1,48 +1,31 @@
-// pages/usecase/usecase.js
+// pages/usecase/HandleExceptionPlanView/planDetail/planDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    usecases: [{
-        id: "1",
-        name: "制定Sop",
-        url: "makeSopView/makeSopView"
-      },
-      {
-        id: "2",
-        name: "计划生产批次",
-        url: "makeProductionPlanView/makeProductionPlanView"
-      },
-      {
-        id: "3",
-        name: "审核生产批次计划",
-        url: "reviewPlanView/reviewPlanView"
-      },
-      {
-        id: "4",
-        name: "执行生产指令",
-        url: "executeOrderView/executeOrderView"
-      },
-      {
-        id: "5",
-        name: "报告异常",
-        url: "reportExceptionView/reportExceptionView"
-      },
-      {
-        id: "6",
-        name: "处理生产过程异常",
-        url: "HandleExceptionPlanView/HandleExceptionPlanView"
-      }
-    ]
+    planId: 1,
+    planName: "生产批次计划1",
+    executedOrder: {
+      content: "车间玉米粉物料不足量，还差100千克",
+      executor: "车间操作人-007",
+      executeTime: "2019-05-19 20:40:12"
+    },
+    handleMessage: null,
+    appointExecutor: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    console.log(options)
+    if (typeof options.planId !== "undefined") {
+      this.setData({
+        planId: options.planId
+      })
+    }
   },
 
   /**

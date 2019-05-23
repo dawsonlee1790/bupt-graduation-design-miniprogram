@@ -1,39 +1,21 @@
-// pages/usecase/usecase.js
+// pages/usecase/HandleExceptionPlanView/HandleExceptionPlanView.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    usecases: [{
-        id: "1",
-        name: "制定Sop",
-        url: "makeSopView/makeSopView"
+    planList: [{
+        id: 1,
+        planName: "生产批次计划1"
       },
       {
-        id: "2",
-        name: "计划生产批次",
-        url: "makeProductionPlanView/makeProductionPlanView"
+        id: 2,
+        planName: "生产批次计划2"
       },
       {
-        id: "3",
-        name: "审核生产批次计划",
-        url: "reviewPlanView/reviewPlanView"
-      },
-      {
-        id: "4",
-        name: "执行生产指令",
-        url: "executeOrderView/executeOrderView"
-      },
-      {
-        id: "5",
-        name: "报告异常",
-        url: "reportExceptionView/reportExceptionView"
-      },
-      {
-        id: "6",
-        name: "处理生产过程异常",
-        url: "HandleExceptionPlanView/HandleExceptionPlanView"
+        id: 3,
+        planName: "生产批次计划3"
       }
     ]
   },

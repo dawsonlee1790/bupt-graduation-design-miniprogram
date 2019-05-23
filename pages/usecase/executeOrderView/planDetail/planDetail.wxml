@@ -1,0 +1,106 @@
+<!--pages/usecase/executeOrderView/planDetail/planDetail.wxml-->
+<import src="../../../common/head.wxml" />
+
+<view class="container">
+  <template is="head" data="{{title: '执行生产指令'}}" />
+
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">批次Id</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{planId}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">批次名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{planName}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">SOP名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{sopName}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">生产数量</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{number}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">投产日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{startDate}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">计划完成日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{endDate}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">生产责任人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-input">{{responsible}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:for-items="{{orderList}}" wx:key="{{item.id}}">
+      <view class="weui-cells__title ">日志记录{{index + 1}}</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd ">
+            <view class="weui-label ">操作内容</view>
+          </view>
+          <view class="weui-cell__bd ">
+            {{item.operationContent}}
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd ">
+            <view class="weui-label">执行者</view>
+          </view>
+          <view class="weui-cell__bd ">
+            {{item.executor}}
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd ">
+            <view class="weui-label">执行时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{item.executeTime}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page-body">
+    <view class="btn-area">
+      <button type="primary" bindtap='executeOrder'>执行生产指令</button>
+      <navigator url="../../reportExceptionView/reportExceptionView?planId={{planId}}">
+          <button >报告异常</button>
+      </navigator>
+    </view>
+  </view>
+</view>

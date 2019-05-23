@@ -1,8 +1,7 @@
 <import src="../common/head.wxml" />
-<import src="../common/foot.wxml" />
 
 <view class="container">
-  <template is="head" data="{{title: 'form'}}" />
+  <template is="head" data="{{title: '登陆'}}" />
 
   <view class="page-body">
     <form catchsubmit="formSubmit" catchreset="formReset">
@@ -31,5 +30,4 @@
     </form>
   </view>
 
-  <template is="foot" />
 </view>

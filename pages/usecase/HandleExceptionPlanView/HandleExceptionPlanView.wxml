@@ -1,0 +1,18 @@
+<!--pages/usecase/HandleExceptionPlanView/HandleExceptionPlanView.wxml-->
+<import src="../../common/head.wxml" />
+<template is="head" data="{{title: '处理生产过程异常'}}" />
+<view class='index-bd'>
+  <view class='kind-list'>
+    <block wx:for-items="{{planList}}" wx:key="{{item.id}}">
+      <view class='kind-list-item'>
+        <navigator url="planDetail/planDetail">
+          <view id='{{item.id}}' class="kind-list-item-hd">
+            <view class='kind-list-text'>{{item.planName}}</view>
+            <view class='kind-list-text'>{{item.status}}</view>
+            <view class="navigator-arrow"></view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+</view>

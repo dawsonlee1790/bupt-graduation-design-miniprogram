@@ -8,7 +8,14 @@
     "pages/me/me",
     "pages/task/task_content/task_content",
     "pages/usecase/makeSopView/makeSopView",
-    "pages/usecase/makeProductionPlanView/makeProductionPlanView"
+    "pages/usecase/makeProductionPlanView/makeProductionPlanView",
+    "pages/usecase/reviewPlanView/reviewPlanView",
+    "pages/usecase/reviewPlanView/planDetail/planDetail",
+    "pages/usecase/executeOrderView/executeOrderView",
+    "pages/usecase/executeOrderView/planDetail/planDetail",
+    "pages/usecase/reportExceptionView/reportExceptionView",
+    "pages/usecase/HandleExceptionPlanView/HandleExceptionPlanView",
+    "pages/usecase/HandleExceptionPlanView/planDetail/planDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -27,18 +34,6 @@
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "用例"
-      },
-      {
-        "pagePath": "pages/task/task",
-        "iconPath": "image/icon_component.png",
-        "selectedIconPath": "image/icon_component_HL.png",
-        "text": "任务"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "iconPath": "image/icon_cloud.png",
-        "selectedIconPath": "image/icon_cloud_HL.png",
-        "text": "我的"
       },
       {
         "pagePath": "pages/login/login",
