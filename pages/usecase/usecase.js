@@ -6,6 +6,11 @@ Page({
    */
   data: {
     usecases: [{
+        id: "0",
+        name: "登陆",
+        url: "login/login"
+      },
+      {
         id: "1",
         name: "制定Sop",
         url: "makeSopView/makeSopView"

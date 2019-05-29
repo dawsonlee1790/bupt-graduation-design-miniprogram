@@ -1,30 +1,55 @@
 // pages/usecase/executeOrderView/executeOrderView.js
+const duration = 2000
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    planList: [{
-        id: 1,
-        planName: "生产批次计划1"
-      },
-      {
-        id: 2,
-        planName: "生产批次计划2"
-      },
-      {
-        id: 3,
-        planName: "生产批次计划3"
-      }
-    ]
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var self = this
+    wx.request({
+      // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
+      url: `http://localhost:8080/ExecuteOrderController`,
+      method: 'get',
+      header: {
+        "Content-Type": "application/json",
+        "Authorization": wx.getStorageSync('jwt')
+      },
+      data: true,
+      success(result) {
+        if (result.statusCode == 200) {
+          console.log('request success', result)
+          self.setData({
+            planList: result.data
+          })
+        } else {
+          wx.showToast({
+            title: '服务器错误' + result.statusCode,
+            icon: 'none',
+            duration
+          })
+          console.log('request fail', result)
+        }
+      },
+      fail({
+        errMsg
+      }) {
+        wx.showToast({
+          title: '连接后端服务器失败',
+          icon: 'none',
+          duration
+        })
+        console.log('request fail', errMsg)
+      }
+    })
   },
 
   /**
@@ -74,5 +99,6 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+
 })

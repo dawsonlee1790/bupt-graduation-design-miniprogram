@@ -1,4 +1,4 @@
-<import src="../common/head.wxml" />
+<import src="../../common/head.wxml" />
 
 <view class="container">
   <template is="head" data="{{title: '登陆'}}" />
@@ -11,7 +11,7 @@
             <view class="weui-label">用户名</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" name="username" placeholder="请输入用户名"></input>
+            <input class="weui-input" name="username" value='{{username}}' placeholder="请输入用户名"></input>
           </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -19,7 +19,7 @@
             <view class="weui-label">密码</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" password name="passwordToken" placeholder="请输入密码"></input>
+            <input class="weui-input" password name="passwordToken" value='{{passwordToken}}' placeholder="请输入密码"></input>
           </view>
         </view>
       </view>

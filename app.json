@@ -4,7 +4,7 @@
     "pages/task/task",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/login",
+    "pages/usecase/login/login",
     "pages/me/me",
     "pages/task/task_content/task_content",
     "pages/usecase/makeSopView/makeSopView",
@@ -33,13 +33,13 @@
         "pagePath": "pages/usecase/usecase",
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
-        "text": "用例"
+        "text": "用例列表"
       },
       {
-        "pagePath": "pages/login/login",
+        "pagePath": "pages/me/me",
         "iconPath": "image/icon_cloud.png",
         "selectedIconPath": "image/icon_cloud_HL.png",
-        "text": "登陆"
+        "text": "我的信息"
       }
     ]
   },

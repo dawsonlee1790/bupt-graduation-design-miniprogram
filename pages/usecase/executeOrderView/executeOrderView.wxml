@@ -5,9 +5,9 @@
   <view class='kind-list'>
     <block wx:for-items="{{planList}}" wx:key="{{item.id}}">
       <view class='kind-list-item'>
-        <navigator url="planDetail/planDetail">
+        <navigator url="planDetail/planDetail?planId={{item.id}}" >
           <view id='{{item.id}}' class="kind-list-item-hd">
-            <view class='kind-list-text'>{{item.planName}}</view>
+            <view class='kind-list-text'>{{item.name}}</view>
             <view class="navigator-arrow"></view>
           </view>
         </navigator>

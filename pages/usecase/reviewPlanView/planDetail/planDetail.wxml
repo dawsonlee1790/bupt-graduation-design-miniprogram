@@ -24,14 +24,6 @@
         </view>
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-            <view class="weui-label">SOP名称</view>
-          </view>
-          <view class="weui-cell__bd">
-            <view class="weui-input">{{sopName}}</view>
-          </view>
-        </view>
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
             <view class="weui-label">生产数量</view>
           </view>
           <view class="weui-cell__bd">

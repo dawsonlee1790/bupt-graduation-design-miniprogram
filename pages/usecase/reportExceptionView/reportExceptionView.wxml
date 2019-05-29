@@ -11,7 +11,7 @@
             <view class="weui-label">批次Id</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" value='{{planId}}' placeholder="请输入批次Id" bindtap='setPlanId'></input>
+            <input class="weui-input" value='{{planId}}'   placeholder="请输入批次Id" bindinput='setPlanId'></input>
           </view>
         </view>
         <view class="weui-cell weui-cell_input">
@@ -19,7 +19,7 @@
             <view class="weui-label">异常内容</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" type='number'  value='{{content}}' bindtap='setContent' placeholder="请输入异常内容"></input>
+            <input class="weui-input" type='number'  value='{{content}}' bindinput='setContent' placeholder="请输入异常内容"></input>
           </view>
         </view>
       </view>

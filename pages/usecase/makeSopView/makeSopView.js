@@ -5,9 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sopName: '',
-    sopNumber: '',
-    sopStepList: []
+    sopName: 'NewMadicine',
+    sopNumber: 100,
+    sopStepList: [{
+        id: 1,
+        operationContent: '叉车工从仓库运玉米粉到车间1',
+        executorGroup: 'Forklift'
+      },
+      {
+        id: 2,
+        operationContent: '车间操作人将玉米粉投入到机器10中',
+        executorGroup: 'WorkshopManager'
+      }
+    ],
+    role: ["Planner", 'Researcher', 'Forklift', 'WorkshopManager', 'ProductionLeader']
   },
 
   setSopName(e) {
@@ -23,9 +34,9 @@ Page({
     this.data.sopStepList[index].operationContent = e.detail.value
   },
 
-  setExecutor(e) {
+  setExecutorGroup(e) {
     var index = e.currentTarget.dataset.index
-    this.data.sopStepList[index].executor = e.detail.value
+    this.data.sopStepList[index].executorGroup = e.detail.value
   },
 
 
@@ -34,7 +45,7 @@ Page({
     this.data.sopStepList = this.data.sopStepList.concat([{
       id: index + 1,
       operationContent: '',
-      executor: ''
+      executorGroup: ''
     }])
     this.setData({
       sopStepList: this.data.sopStepList
@@ -47,29 +58,33 @@ Page({
     self.setData({
       loading: true
     })
-    for (var i = 0; i < this.data.sopStepList; i++) {
-      this.data.sopStepList[i].next = this.data.sopStepList[i+1]
+    for (var i = 0; i < this.data.sopStepList.length; i++) {
+      this.data.sopStepList[i].next = this.data.sopStepList[i + 1]
     }
     var sopName = this.data.sopName
     var sopNumber = this.data.sopNumber
+    const data = {
+      name: sopName,
+      number: sopNumber,
+      startStep: this.data.sopStepList[0]
+    };
+    console.log(data);
     wx.request({
-      url: `http://user.debugya.cn:30080/UserController/login`,
-      method: 'post',
+      url: `http://sop-dev.debugya.cn:30080/MakeSopController/make`,
+      // url: `http://localhost:8080/MakeSopController/make`,
+      method: 'put',
       header: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": wx.getStorageSync("jwt")
       },
-      data: {
-        "sopName": sopName,
-        "sopNumber": sopNumber,
-        "startSopStep": this.data.sopStepList[0]
-      },
+      data,
       success(result) {
         if (result.statusCode == 200) {
           wx.showToast({
             title: '制定成功',
             icon: 'success',
             mask: true,
-            duration: 20000,
+            duration: 2000,
           })
           self.setData({
             loading: false
@@ -77,7 +92,9 @@ Page({
           console.log('request success', result)
         } else {
           wx.showToast({
-            title: '制定失败'
+            title: '制定失败  ' + result.data.message,
+            icon: 'none',
+            duration: 2000
           })
           self.setData({
             loading: false
@@ -89,6 +106,11 @@ Page({
       fail({
         errMsg
       }) {
+        wx.showToast({
+          title: '连接不上服务器',
+          icon: 'none',
+          duration: 2000
+        })
         console.log('request fail', errMsg)
         self.setData({
           loading: false

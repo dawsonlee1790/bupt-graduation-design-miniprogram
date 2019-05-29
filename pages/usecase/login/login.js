@@ -1,6 +1,7 @@
 // pages/login/login.js
 
-const duration = 2000
+const duration = 2000;
+var jwtDecode = require('jwt-decode');
 
 Page({
 
@@ -8,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    username: 'admin',
+    passwordToken: 123456789
   },
 
   /**
@@ -74,8 +76,16 @@ Page({
     })
     var username = e.detail.value.username
     var passwordToken = e.detail.value.passwordToken
+    wx.removeStorage({
+      key: 'jwt',
+      success: function(res) {},
+    })
+    wx.removeStorage({
+      key: 'jwtData',
+      success: function(res) {},
+    })
     wx.request({
-      url: `http://user.debugya.cn:30080/UserController/login`,
+      url: `http://user-dev.debugya.cn:30080/UserController/login`,
       method: 'post',
       header: {
         "Content-Type": "application/json"
@@ -86,6 +96,17 @@ Page({
       },
       success(result) {
         if (result.statusCode == 200) {
+          var token = result.data;
+          var decoded = jwtDecode(token);
+          console.log(decoded);
+          wx.setStorage({
+            key: 'jwt',
+            data: token,
+          })
+          wx.setStorage({
+            key: 'jwtData',
+            data: decoded,
+          })
           wx.showToast({
             title: '登陆成功',
             icon: 'success',
@@ -96,9 +117,11 @@ Page({
             loading: false
           })
           console.log('request success', result)
-        }else{
+        } else {
           wx.showToast({
-            title: '登陆失败'
+            title: '登陆失败 错误代码：' + result.statusCode,
+            icon: 'none',
+            duration
           })
           self.setData({
             loading: false
@@ -110,6 +133,10 @@ Page({
       fail({
         errMsg
       }) {
+        wx.showToast({
+          title: '连接后端系统失败',
+          icon: 'none'
+        })
         console.log('request fail', errMsg)
         self.setData({
           loading: false

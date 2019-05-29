@@ -1,12 +1,14 @@
 // pages/usecase/reportExceptionView/reportExceptionView.js
+
+const duration = 2000
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    planId: null,
-    content: null
+    planId: 1,
+    content: "发现车间停机"
   },
 
   onLoad(options) {
@@ -18,38 +20,38 @@ Page({
     }
   },
 
+
+
   setPlanId(e) {
-    this.data.planId = e.detail.value
+    this.setData({
+      planId: e.detail.value
+    })
   },
 
   setContent(e) {
-    this.data.content = e.detail.value
+    this.setData({
+      content: e.detail.value
+    })
   },
 
   formSubmit(e) {
     const self = this
-    self.setData({
-      loading: true
-    })
-    var username = e.detail.value.username
-    var passwordToken = e.detail.value.passwordToken
     wx.request({
-      url: `http://user.debugya.cn:30080/UserController/login`,
+      // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
+      url: `http://localhost:8080/ReportExceptionController/report/` + this.data.planId,
       method: 'post',
       header: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": wx.getStorageSync('jwt')
       },
-      data: {
-        "name": username,
-        "passwordToken": passwordToken
-      },
+      data: self.data.content,
       success(result) {
         if (result.statusCode == 200) {
           wx.showToast({
-            title: '登陆成功',
+            title: '报告异常成功',
             icon: 'success',
             mask: true,
-            duration,
+            duration
           })
           self.setData({
             loading: false
@@ -57,7 +59,9 @@ Page({
           console.log('request success', result)
         } else {
           wx.showToast({
-            title: '登陆失败'
+            title: '操作失败',
+            icon: 'none',
+            duration
           })
           self.setData({
             loading: false
@@ -69,6 +73,11 @@ Page({
       fail({
         errMsg
       }) {
+        wx.showToast({
+          title: '连接后端服务器失败',
+          icon: 'none',
+          duration
+        })
         console.log('request fail', errMsg)
         self.setData({
           loading: false

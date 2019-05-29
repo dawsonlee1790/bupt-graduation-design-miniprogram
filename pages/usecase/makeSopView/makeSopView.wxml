@@ -39,7 +39,7 @@
             <view class="weui-label ">角色</view>
           </view>
           <view class="weui-cell__bd ">
-            <input class="weui-input " placeholder="请输入角色 " value='{{item.executor}}' name='{{index}}' data-index='{{index}}' bindinput='setExecutor'></input>
+            <input class="weui-input " placeholder="请输入角色 " value='{{item.executorGroup}}' name='{{index}}' data-index='{{index}}' bindinput='setExecutorGroup'></input>
           </view>
         </view>
       </view>

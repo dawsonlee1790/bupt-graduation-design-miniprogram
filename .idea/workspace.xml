@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2098373d-7094-4de6-b802-0c2fd34a659f" name="Default Changelist" comment="" />
+    <list default="true" id="2098373d-7094-4de6-b802-0c2fd34a659f" name="Default Changelist" comment="备份">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,8 +28,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="541" />
-    <option name="y" value="243" />
+    <option name="x" value="776" />
+    <option name="y" value="371" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -48,10 +54,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/Dawson/Documents/Android" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bupt-graduation-design-user" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -78,16 +85,26 @@
       <option name="presentableId" value="Default" />
       <updated>1557910229363</updated>
       <workItem from="1557910233528" duration="39000" />
+      <workItem from="1558587539215" duration="102000" />
+      <workItem from="1558699083925" duration="44000" />
     </task>
+    <task id="LOCAL-00001" summary="备份">
+      <created>1558587595940</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558587595940</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39000" />
+    <option name="totallyTimeSpent" value="185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" x="2061" y="-579" width="358" height="946" id="Project" order="0" visible="true" weight="0.21995708" />
+      <window_info active="true" content_ui="combo" x="2061" y="-579" width="358" height="946" id="Project" order="0" visible="true" weight="0.22585838" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -104,7 +121,7 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49932525" weight="0.4226804" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932525" weight="0.36377025" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" weight="0.3292232" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006748" side_tool="true" weight="0.36363637" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006748" side_tool="true" weight="0.36414254" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32842416" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.3298969" />
@@ -122,6 +139,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="备份" />
+    <option name="LAST_COMMIT_MESSAGE" value="备份" />
   </component>
   <component name="masterDetails">
     <states>
