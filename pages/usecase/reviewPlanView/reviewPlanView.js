@@ -32,7 +32,7 @@ Page({
     var self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ReviewPlanController`,
+      url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
       method: 'get',
       header: {
         "Content-Type": "application/json",

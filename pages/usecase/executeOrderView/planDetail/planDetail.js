@@ -99,7 +99,7 @@ Page({
     var self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ExecuteOrderController/` + this.data.planId,
+      url: `http://sop-dev.debugya.cn:30080/ExecuteOrderController/` + this.data.planId,
       method: 'post',
       header: {
         "Content-Type": "application/json",
@@ -142,7 +142,7 @@ Page({
     var self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ExecuteOrderController/` + planId,
+      url: `http://sop-dev.debugya.cn:30080/ExecuteOrderController/` + planId,
       method: 'get',
       header: {
         "Content-Type": "application/json",

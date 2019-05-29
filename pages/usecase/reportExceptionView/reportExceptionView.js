@@ -38,7 +38,7 @@ Page({
     const self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ReportExceptionController/report/` + this.data.planId,
+      url: `http://sop-dev.debugya.cn:30080/ReportExceptionController/report/` + this.data.planId,
       method: 'post',
       header: {
         "Content-Type": "application/json",

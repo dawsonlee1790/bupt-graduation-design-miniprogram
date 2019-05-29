@@ -83,7 +83,7 @@ Page({
     const self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/HandleExceptionController/` + this.data.planId,
+      url: `http://sop-dev.debugya.cn:30080/HandleExceptionController/` + this.data.planId,
       method: 'post',
       header: {
         "Content-Type": "application/json",
@@ -137,7 +137,7 @@ Page({
     var self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/HandleExceptionController/` + planId,
+      url: `http://sop-dev.debugya.cn:30080/HandleExceptionController/` + planId,
       method: 'get',
       header: {
         "Content-Type": "application/json",

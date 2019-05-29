@@ -31,7 +31,7 @@ Page({
     const self = this
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/HandleExceptionController`,
+      url: `http://sop-dev.debugya.cn:30080/HandleExceptionController`,
       method: 'get',
       header: {
         "Content-Type": "application/json",

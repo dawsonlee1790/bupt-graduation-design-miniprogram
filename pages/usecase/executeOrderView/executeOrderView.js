@@ -16,8 +16,7 @@ Page({
   onLoad: function(options) {
     var self = this
     wx.request({
-      // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ExecuteOrderController`,
+      url: `http://sop-dev.debugya.cn:30080/ExecuteOrderController`,
       method: 'get',
       header: {
         "Content-Type": "application/json",

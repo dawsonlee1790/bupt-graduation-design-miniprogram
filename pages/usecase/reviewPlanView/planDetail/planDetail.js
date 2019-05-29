@@ -22,7 +22,7 @@ Page({
       var self = this
       wx.request({
         // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-        url: `http://localhost:8080/ReviewPlanController/` + options.planId,
+        url: `http://sop-dev.debugya.cn:30080/ReviewPlanController/` + options.planId,
         method: 'get',
         header: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ Page({
   approve() {
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ReviewPlanController/` + this.data.planId + '/review',
+      url: `http://sop-dev.debugya.cn:30080/ReviewPlanController/` + this.data.planId + '/review',
       method: 'post',
       header: {
         "Content-Type": "application/json",
@@ -105,7 +105,7 @@ Page({
   notApprove() {
     wx.request({
       // url: `http://sop-dev.debugya.cn:30080/ReviewPlanController`,
-      url: `http://localhost:8080/ReviewPlanController/` + this.data.planId + '/review',
+      url: `http://sop-dev.debugya.cn:30080/ReviewPlanController/` + this.data.planId + '/review',
       method: 'post',
       header: {
         "Content-Type": "application/json",
